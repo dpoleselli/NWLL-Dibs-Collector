@@ -1,3 +1,3 @@
-import { handler } from ".";
+import { handler } from '.';
 
 handler()

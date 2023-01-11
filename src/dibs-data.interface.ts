@@ -11,7 +11,7 @@ export interface DibsData {
     category: string,
     fulfillerPhoneRequired: string,
     fulfillerEmailRequired: string,
-    status: string, //TODO: get the posibilities
+    status: string, // TODO: get the posibilities
     athleteName: string,
     athleteEmail: string,
     fulfillerName: string,

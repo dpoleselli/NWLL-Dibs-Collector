@@ -1,0 +1,29 @@
+{
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "sort-imports-es6-autofix"],
+  "rules":{
+    "sort-imports-es6-autofix/sort-imports-es6": "error",
+    "spaced-comment": 2,
+    "eqeqeq": "error",
+    "object-curly-newline": [ 
+        "error",
+        {
+            "multiline": true
+        }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+        }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
+    "curly": "error",
+    "quotes": ["error", "single"]
+  },
+  "root": true
+}

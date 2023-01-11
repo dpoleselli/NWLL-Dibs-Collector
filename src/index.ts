@@ -1,40 +1,41 @@
-import puppeteer, { Page } from "puppeteer"
-import chromium from "@sparticuz/chromium"
-import csv from "csv-parser"
-import { createReadStream, readdirSync } from "fs"
-import { DibsData } from "./dibs-data.interface"
-import { camelCase } from "lodash"
-import { DOWNLOAD_PATH, USERNAME, PASSWORD, LOGIN_URL } from "./constants"
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { DIBS_PASSWORD, DIBS_USERNAME, DOWNLOAD_PATH, LOGIN_URL } from './constants'
+import { DibsData } from './dibs-data.interface'
+import { camelCase } from 'lodash'
+import { createReadStream, readdirSync } from 'fs'
+import chromium from '@sparticuz/chromium'
+import csv from 'csv-parser'
+import puppeteer, { Page } from 'puppeteer'
 
 
 const login = async (page: Page) => {
     await page.goto(LOGIN_URL);
 
-    await page.type('#user_login', USERNAME)
+    await page.type('#user_login', DIBS_USERNAME)
 
     await page.click('input[type=submit]')
 
-    //@ts-ignore
+    // @ts-ignore
     await page.waitForSelector('#user_password')
 
-    await page.type('#user_password', PASSWORD)
+    await page.type('#user_password', DIBS_PASSWORD)
 
     await page.click('input[type=submit]')
 }
 
 const downloadData = async (page: Page) => {
-    //@ts-ignore
+    // @ts-ignore
     await page.waitForSelector('#adminNav')
 
     await page.click('#adminNav a')
 
-    //@ts-ignore
+    // @ts-ignore
     await page.waitForSelector('#tab_active_edit_mode_content')
 
-    //TODO: figure out which Session(s) to click
+    // TODO: figure out which Session(s) to click
     await page.click('a[href="/dib_sessions/show/48535"]')
 
-    //@ts-ignore
+    // @ts-ignore
     await page.waitForSelector('#start_date_day')
 
     await page.click('#start_date_day', {clickCount: 3});
@@ -43,10 +44,10 @@ const downloadData = async (page: Page) => {
 
     await page.click('.filter-button a')
 
-    //wait for the filtering
+    // wait for the filtering
     await new Promise(r => setTimeout(r, 1000))
 
-    //@ts-ignore -- this is not publically stable but it works for now
+    // @ts-ignore -- this is not publically stable but it works for now
     await page._client().send('Page.setDownloadBehavior', {
         behavior: 'allow',
         downloadPath: DOWNLOAD_PATH
@@ -54,7 +55,7 @@ const downloadData = async (page: Page) => {
 
     await page.click('#export_dibs')
 
-    //wait for the download
+    // wait for the download
     await new Promise(r => setTimeout(r, 2500))
 }
 
@@ -88,9 +89,7 @@ export const handler = async () => {
       
 
         createReadStream(`${DOWNLOAD_PATH}/${fileName}`)
-        .pipe(csv({
-            mapHeaders: ({ header }) => camelCase(header)
-          }))
+        .pipe(csv({mapHeaders: ({ header }) => camelCase(header)}))
         .on('data', (data) => results.push(data))
         .on('end', () => {
             console.log(results);
