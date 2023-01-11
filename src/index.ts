@@ -4,13 +4,8 @@ import csv from "csv-parser"
 import { createReadStream, readdirSync } from "fs"
 import { DibsData } from "./dibs-data.interface"
 import { camelCase } from "lodash"
+import { DOWNLOAD_PATH, USERNAME, PASSWORD, LOGIN_URL } from "./constants"
 
-const LOGIN_URL = 'https://user.sportngin.com/users/sign_in?user_return_to=https%3A%2F%2Flogin.sportngin.com%2Fcheck_login%3Fnext_url%3Dhttps%3A%2F%2Fwww.nwllbaseball.com%2Fdib_sessions'
-
-const USERNAME = process.env.DIBS_USERNAME as string
-const PASSWORD = process.env.DIBS_PASSWORD as string
-
-const DOWNLOAD_PATH = 'tmp'
 
 const login = async (page: Page) => {
     await page.goto(LOGIN_URL);
