@@ -1,0 +1,28 @@
+{
+  "name": "node-lambda-template",
+  "version": "0.0.0",
+  "description": "A template repo for getting started with a basic Lambda function written in Node",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/local-main.ts",
+    "prebuild": "rm -rf dist",
+    "build": "esbuild src/index.ts --external:aws-sdk --external:@sparticuz/chromium --bundle --minify  --platform=node --target=node16.19 --outdir=dist",
+    "package": "cd dist && zip -r package.zip .",
+    "deploy": "sh infra/deploy.sh",
+    "build-and-deploy": "npm run build && npm run package && npm run deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sparticuz/chromium": "^109.0.1",
+    "@types/aws-lambda": "^8.10.109",
+    "csv-parser": "^3.0.0",
+    "lodash": "^4.17.21",
+    "puppeteer": "^19.4.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "esbuild": "^0.16.16",
+    "ts-node": "^10.9.1"
+  }
+}
