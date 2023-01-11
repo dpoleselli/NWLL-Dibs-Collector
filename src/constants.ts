@@ -1,3 +1,5 @@
+// TODO: use Parameter Store for all of these
+
 export const LOGIN_URL =
   'https://user.sportngin.com/users/sign_in?user_return_to=https%3A%2F%2Flogin.sportngin.com%2Fcheck_login%3Fnext_url%3Dhttps%3A%2F%2Fwww.nwllbaseball.com%2Fdib_sessions';
 

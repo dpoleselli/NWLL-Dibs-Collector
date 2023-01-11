@@ -6,5 +6,5 @@ if [ -z "$FUNCTION_NAME" ]; then
 else
     aws lambda update-function-code \
         --function-name $FUNCTION_NAME \
-        --zip-file fileb://dist/package.zip \
+        --zip-file fileb://dist/package.zip
 fi
