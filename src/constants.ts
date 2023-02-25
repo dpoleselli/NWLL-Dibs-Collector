@@ -6,7 +6,9 @@ export const LOGIN_URL =
 export const DIBS_USERNAME = process.env.DIBS_USERNAME as string;
 export const DIBS_PASSWORD = process.env.DIBS_PASSWORD as string;
 
-export const DOWNLOAD_PATH = 'tmp';
+const inAwsLambda =
+  process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.AWS_EXECUTION_ENV;
+export const DOWNLOAD_PATH = inAwsLambda ? '/tmp/nwllDownloads' : 'tmp';
 
 if (!DIBS_USERNAME || !DIBS_PASSWORD) {
   throw new Error(
