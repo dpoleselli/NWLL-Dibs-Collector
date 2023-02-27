@@ -8,7 +8,9 @@ export const DIBS_PASSWORD = process.env.DIBS_PASSWORD as string;
 
 const inAwsLambda =
   process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.AWS_EXECUTION_ENV;
-export const DOWNLOAD_PATH = inAwsLambda ? '/tmp/nwllDownloads' : 'tmp';
+export const DOWNLOAD_PATH = inAwsLambda
+  ? '/tmp/nwllDownloads'
+  : 'tmp/nwllDownloads';
 
 if (!DIBS_USERNAME || !DIBS_PASSWORD) {
   throw new Error(
