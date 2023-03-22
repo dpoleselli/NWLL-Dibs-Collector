@@ -14,6 +14,10 @@ resource "aws_iam_role" "lambda_role" {
     ]
 }
     EOF
+
+  tags = {
+    Terraform = "true"
+  }
 }
 
 resource "aws_iam_policy" "iam_policy_for_lambda" {
@@ -42,6 +46,10 @@ resource "aws_iam_policy" "iam_policy_for_lambda" {
     ]
 }
     EOF
+
+  tags = {
+    Terraform = "true"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
