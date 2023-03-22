@@ -16,11 +16,3 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
-
-resource "aws_s3_bucket" "b" {
-  bucket = "poleselli-test-terraform-bucket"
-
-  tags = {
-    DeployedByTerraform = "true"
-  }
-}
