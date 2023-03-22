@@ -14,6 +14,11 @@ jobs:
     defaults:
       run:
         working-directory: 'infra/'
+    env:
+      TF_VAR_dibs_username: ${{ secrets.DIBS_USERNAME }}
+      TF_VAR_dibs_password: ${{ secrets.DIBS_PASSWORD }}
+      TF_VAR_google_private_key: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+      TF_VAR_google_sa_email: ${{ secrets.GOOGLE_SA_EMAIL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

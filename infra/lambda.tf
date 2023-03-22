@@ -19,10 +19,10 @@ resource "aws_lambda_function" "terraform_lambda_func" {
 
   environment {
     variables = {
-      DIBS_PASSWORD      = "tmp"
-      DIBS_USERNAME      = "tmp"
-      GOOGLE_PRIVATE_KEY = "tmp"
-      GOOGLE_SA_EMAIL    = "tmp"
+      DIBS_PASSWORD      = "${var.dibs_password}"
+      DIBS_USERNAME      = "${var.dibs_username}"
+      GOOGLE_PRIVATE_KEY = "${var.google_private_key}"
+      GOOGLE_SA_EMAIL    = "${var.google_sa_email}"
     }
   }
 
