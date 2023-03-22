@@ -3,3 +3,4 @@ tmp
 dist
 .vscode
 cheat-env-variables.sh
+.terraform*
