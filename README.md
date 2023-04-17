@@ -1,6 +1,8 @@
 # NWLL Dibs Collector
 
-Node.js code for a Lambda function that leverages Puppeteer to download the latest DIBS data from nwllbaseball.com and save the data to a Google Sheet
+DIBS is a volunteer sign up program used to manage umpire assignment by a local Little League that I am a part of. The goal of this project is to automate the exporting of data from DIBS to a format that can be analyzed.
+
+To do that, this app uses a Node.js Lambda function that leverages Puppeteer to download the latest DIBS data from nwllbaseball.com and save the data to a Google Sheet.
 
 ## Commands
 
