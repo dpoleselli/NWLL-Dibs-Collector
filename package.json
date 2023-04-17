@@ -1,7 +1,7 @@
 {
-  "name": "node-lambda-template",
+  "name": "nwll-dibs-collector",
   "version": "0.0.0",
-  "description": "A template repo for getting started with a basic Lambda function written in Node",
+  "description": "A Node.js app that leverages Puppeteer to download the latest NWLL DIBS data and the upload it to Google Sheets",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/local-main.ts",
@@ -13,7 +13,7 @@
     "lint": "eslint **/*.ts --fix",
     "format": "prettier --write **/*.ts"
   },
-  "author": "",
+  "author": "Dante Poleselli",
   "license": "ISC",
   "dependencies": {
     "@sparticuz/chromium": "^109.0.1",
