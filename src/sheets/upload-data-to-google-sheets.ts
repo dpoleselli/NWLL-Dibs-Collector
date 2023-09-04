@@ -7,6 +7,11 @@ import {
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
 export const uploadDataToGoogleSheets = async (results: DibsData[]) => {
+  if (!results?.length) {
+    console.log('No data to save');
+    return;
+  }
+
   const doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID);
 
   await doc.useServiceAccountAuth({
