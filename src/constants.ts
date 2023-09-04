@@ -19,7 +19,7 @@ if (!DIBS_USERNAME || !DIBS_PASSWORD) {
 }
 
 export const GOOGLE_SPREADSHEET_ID =
-  '1PZ6McK-Xc_RwyIgZZezyERSoBVppZAuaNae6HFBpGfE';
+  '1ed4vU_JhgV60HUfirbNg80gX3f_FEzsH8A_aqocBHyo';
 
 export const GOOGLE_SA_EMAIL = process.env.GOOGLE_SA_EMAIL as string;
 export const GOOGLE_PRIVATE_KEY = (process.env.GOOGLE_PRIVATE_KEY as string)

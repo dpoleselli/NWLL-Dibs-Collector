@@ -20,12 +20,12 @@ export const downloadCsv = async (page: Page) => {
 
   await page.click('#end_date_day', { clickCount: 3 });
 
-  await page.type('#end_date_day', '07/01/2023');
+  await page.type('#end_date_day', '12/01/2023');
 
   // NOTE: end_date needs to be first so the calendar dropdown isn't in the way of clicking end_date after start_date
   await page.click('#start_date_day', { clickCount: 3 });
 
-  await page.type('#start_date_day', '02/01/2023');
+  await page.type('#start_date_day', '08/01/2023');
 
   await page.click('.filter-button a');
 
